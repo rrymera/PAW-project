@@ -1,11 +1,123 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Attendance System</title>
+  <link rel="stylesheet" href="PAWc.css" />
 </head>
 <body>
-    
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">Attendance System</div>
+    <ul class="nav-links">
+      <li><a href="#" id="homeLink">Home</a></li>
+      <li><a href="#" id="attendanceLink">Attendance List</a></li>
+      <li><a href="#" id="addStudentLink">Add Student</a></li>
+      <li><a href="#" id="reportsLink">Reports</a></li>
+      <li><a href="#">Logout</a></li>
+    </ul>
+  </nav>
+
+  <!-- HOME -->
+  <section id="homeSection" class="page-section">
+    <h1>Welcome to Attendance System !</h1>
+    <p>Manage student attendance and track participation efficiently</p>
+  </section>
+
+
+  <!-- ATTENDANCE LIST (table) -->
+  <section id="attendanceSection" class="page-section hidden">
+    <h2>Attendance List</h2>
+    <p>Student attendance for today's session</p>
+
+    <table id="attendanceTable">
+      <thead>
+        <tr>
+          <th rowspan="2">Last Name</th>
+          <th rowspan="2">First Name</th>
+
+          <th colspan="2">S1</th>
+          <th colspan="2">S2</th>
+          <th colspan="2">S3</th>
+          <th colspan="2">S4</th>
+          <th colspan="2">S5</th>
+          <th colspan="2">S6</th>
+
+          <th rowspan="2">Absences</th>
+          <th rowspan="2">Participation</th>
+          <th rowspan="2">Message</th>
+        </tr>
+        <tr>
+          <th>P</th><th>Pa</th>
+          <th>P</th><th>Pa</th>
+          <th>P</th><th>Pa</th>
+          <th>P</th><th>Pa</th>
+          <th>P</th><th>Pa</th>
+          <th>P</th><th>Pa</th>
+        </tr>
+      </thead>
+
+      <tbody id="attendanceBody">
+        <tr>
+          <td class="last">A</td>
+          <td class="first">S</td>
+          
+          <td><input type="checkbox" class="p"></td>
+          <td><input type="checkbox" class="pa"></td>
+
+          <td><input type="checkbox" class="p"></td>
+          <td><input type="checkbox" class="pa"></td>
+
+          <td><input type="checkbox" class="p"></td>
+          <td><input type="checkbox" class="pa"></td>
+
+          <td><input type="checkbox" class="p"></td>
+          <td><input type="checkbox" class="pa"></td>
+
+          <td><input type="checkbox" class="p"></td>
+          <td><input type="checkbox" class="pa"></td>
+
+          <td><input type="checkbox" class="p"></td>
+          <td><input type="checkbox" class="pa"></td>
+
+          <td class="abs">0 Abs</td>
+          <td class="par">0 Par</td>
+          <td class="msg"></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+
+  <!-- ADD STUDENT (form) -->
+  <section id="addStudentSection" class="page-section hidden">
+    <h2>Add New Student</h2>
+    <p>Enter student information to add them to the attendance system</p>
+
+    <form id="studentForm" novalidate>
+      <label for="studentId">Student ID</label>
+      <input id="studentId" name="studentId" type="text" />
+      <div class="error" id="idError"></div>
+
+      <label for="lastName">Last Name</label>
+      <input id="lastName" name="lastName" type="text" />
+      <div class="error" id="lastNameError"></div>
+
+      <label for="firstName">First Name</label>
+      <input id="firstName" name="firstName" type="text" />
+      <div class="error" id="firstNameError"></div>
+
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" />
+      <div class="error" id="emailError"></div>
+
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+  </section>
+
+  <script src="PAWj.js"></script>
 </body>
 </html>
