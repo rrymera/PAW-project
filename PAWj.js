@@ -1,4 +1,3 @@
-
 const homeSection = document.getElementById("homeSection");
 const attendanceSection = document.getElementById("attendanceSection");
 const addStudentSection = document.getElementById("addStudentSection");
