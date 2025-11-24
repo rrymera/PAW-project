@@ -1,12 +1,11 @@
 :root{
-  --nav-bg:#2c3e50;
-  --accent:#1abc9c;
+  --nav-bg:#5b4165;
+  --accent:#5a6d92;
   --green:#c6efce;
   --yellow:#fff2af;
   --red:#f4cccc;
   --border:#222;
 }
-
 *{box-sizing:border-box}
 body{
   margin:0;
@@ -24,12 +23,10 @@ body{
   background:var(--nav-bg);
   color:#fff;
 }
-.logo{font-weight:700}
+.logo{font-weight:650}
 .nav-links{list-style:none;display:flex;gap:18px;margin:0;padding:0}
 .nav-links a{color:#fff;text-decoration:none;font-weight:600}
 .nav-links a:hover{color:var(--accent)}
-
-/* PAGE */
 .page-section{padding:20px 24px}
 .hidden{display:none}
 
@@ -47,7 +44,6 @@ body{
 }
 #attendanceTable thead th{background:#fff;font-weight:700}
 #attendanceTable input[type="checkbox"]{transform:scale(1.15)}
-
 /* row colors */
 .green-row{background:var(--green)}
 .yellow-row{background:var(--yellow)}
@@ -68,3 +64,20 @@ input[type="text"], input[type="email"]{
   margin-top:14px;padding:10px;background:var(--nav-bg);color:#fff;border:none;border-radius:6px;cursor:pointer;font-weight:700;
 }
 .submit-btn:hover{opacity:.9}
+
+/* REPORT BUTTON */
+.report-btn {
+  margin-top: 10px;
+  padding: 10px 16px;
+  background: var(--accent);
+  border: none;
+  color: white;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.report-btn:hover {
+  opacity: 0.85;
+}
+
+
