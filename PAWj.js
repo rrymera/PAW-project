@@ -237,3 +237,43 @@ $("#resetBtn").on("click", function () {
     updateRow(this);  
   });
 });
+//search by name
+$("#searchInput").on("keyup", function () {
+    const search = $(this).val().toLowerCase();
+    $("#attendanceBody tr").filter(function () {
+        const last = $(this).find(".last").text().toLowerCase();
+        const first = $(this).find(".first").text().toLowerCase();
+        $(this).toggle(
+            last.includes(search) || first.includes(search)
+        );
+    });
+});
+//sort buttons
+function updateSortMessage(text) {
+    $("#sortMessage").text("Currently sorted by " + text);
+}
+$("#sortAbsBtn").on("click", function () {
+    const rows = $("#attendanceBody tr").get();
+    rows.sort(function (a, b) {
+        const absA = parseInt($(a).find(".abs").text());
+        const absB = parseInt($(b).find(".abs").text());
+        return absA - absB; //ascending
+    });
+    $.each(rows, function (_, row) {
+        $("#attendanceBody").append(row);
+    });
+    updateSortMessage("absences (ascending)");
+});
+
+$("#sortParBtn").on("click", function () {
+    const rows = $("#attendanceBody tr").get();
+    rows.sort(function (a, b) {
+        const parA = parseInt($(a).find(".par").text());
+        const parB = parseInt($(b).find(".par").text());
+        return parB - parA; //descending
+    });
+    $.each(rows, function (_, row) {
+        $("#attendanceBody").append(row);
+    });
+    updateSortMessage("participation (descending)");
+});

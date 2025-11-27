@@ -29,7 +29,14 @@
   <!-- ATTENDANCE LIST -->
   <section id="attendanceSection" class="page-section hidden">
     <h2>Attendance List</h2>
-    <p>Student attendance for today's session:</p>
+    <p>Student attendance for today's session</p>
+<div id="tableTools" style="margin:10px 0;">
+    <label><strong>Search by Name:</strong></label>
+    <input type="text" id="searchInput" placeholder="Type a name..." style="padding:6px; margin-left:6px;">
+    
+    <button id="sortAbsBtn" class="report-btn">Sort by Absences (Ascending)</button>
+    <button id="sortParBtn" class="report-btn">Sort by Participation (Descending)</button>
+</div>
     <table id="attendanceTable">
       <thead>
         <tr>
@@ -76,6 +83,7 @@
         </tr>
       </tbody>
     </table>
+    <p id="sortMessage" style="font-style:italic; color:#555; margin-top:6px;"></p>
 <!-- buttons under the table -->
 <button id="showReportBtn" class="report-btn">Show Report</button>
 <button id="highlightBtn" class="report-btn">Highlight Excellent Students</button>
