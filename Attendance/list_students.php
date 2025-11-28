@@ -1,6 +1,5 @@
 <?php
 require 'db_connect.php';
-
 $db = getConnection();
 
 if ($db) {
@@ -8,7 +7,7 @@ if ($db) {
     $stmt = $db->query($sql);
     $students = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } else {
-    die("Database connection failed!");
+    die("Database connection failed");
 }
 ?>
 
@@ -21,7 +20,6 @@ if ($db) {
         <th>Group ID</th>
         <th>Actions</th>
     </tr>
-
     <?php foreach ($students as $student): ?>
     <tr>
         <td><?= $student['id'] ?></td>

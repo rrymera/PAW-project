@@ -2,17 +2,14 @@
 require 'db_connect.php';
 $db = getConnection();
 
-if (!$db) die("Database connection failed!");
-
+if (!$db) die("Database connection failed");
 $id = $_GET['id'] ?? null;
-
 if ($id) {
     $sql = "DELETE FROM students WHERE id = ?";
     $stmt = $db->prepare($sql);
-
     try {
         $stmt->execute([$id]);
-        echo "Student deleted.";
+        echo "Student deleted";
     } catch (PDOException $e) {
         echo "Error deleting student: " . $e->getMessage();
     }

@@ -1,7 +1,4 @@
 <?php
-date_default_timezone_set('UTC'); // Mettre le fuseau horaire souhaité
-
-// 1. Charger les étudiants depuis students.json
 $studentsFile = 'students.json';
 $students = [];
 
@@ -12,41 +9,32 @@ if (file_exists($studentsFile)) {
         $students = [];
     }
 } else {
-    echo "<p style='color:red;'>No students found. Please add students first.</p>";
+    echo "<p style='color:red;'>No students found, please add students first.</p>";
     exit;
 }
-
-// Nom du fichier d'aujourd'hui
+//file name
 $today = date('Y-m-d');
 $attendanceFile = "attendance_$today.json";
-
-// 3. Vérifier si la présence a déjà été prise
 if (file_exists($attendanceFile)) {
-    echo "<p style='color:red;'>Attendance for today has already been taken.</p>";
+    echo "<p style='color:red;'>Attendance for today has already been taken</p>";
     exit;
 }
-
-// 2. Si le formulaire est soumis, enregistrer la présence
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $attendance = [];
-
     foreach ($students as $student) {
         $student_id = $student['matricule'] ?? $student['student_id'] ?? '';
         $status = $_POST['attendance'][$student_id] ?? 'absent';
-
         $attendance[] = [
             'student_id' => $student_id,
             'status'     => $status
         ];
     }
-
-    // Sauvegarder dans le fichier JSON
+    //save in json
     if (file_put_contents($attendanceFile, json_encode($attendance, JSON_PRETTY_PRINT))) {
         echo "<p style='color:green;'>Attendance saved successfully in $attendanceFile.</p>";
     } else {
         echo "<p style='color:red;'>Failed to save attendance.</p>";
     }
-
     exit;
 }
 ?>

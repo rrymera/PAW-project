@@ -1,8 +1,8 @@
 <?php
-// Configuration Base de données
+//db configuration
 return [
     'host' => 'localhost',
     'username' => 'root',
-    'password' => '', 
+    'password' => '',  //umpty
     'database' => 'project'
 ];
